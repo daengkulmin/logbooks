@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>LogBook</h1>
+
+<input id="txt" autofocus class="form-control my-5" />
+
+<div id="output">
+    <i class="text-muted">Please Input text</i>
+</div>
+
+@section Scripts
+{
+    <script>
+        $("#txt").keyup(function () {
+            let s = $(this).val();
+            let url = 'logbook/search?text=' + s;
+
+            $.get(url).then(res => {
+                $("#output").html(res);
+            });
+            
+        });
+    </script>
+}
+

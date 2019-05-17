@@ -1,0 +1,96 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model PatientDivisionVisitsSummary
+
+
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th class="d-none d-md-table-cell">
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th class="d-none d-md-table-cell">
+                        @Html.DisplayNameFor(model => model.Birthdate)
+                    </th>
+                    <th class="d-none d-md-table-cell">
+                        @Html.DisplayNameFor(model => model.Sex)
+                    </th>
+                    <th class="d-none d-md-table-cell">
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AN)
+                    </th>
+
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.WardPre)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Opd)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var classWardPre = Model.WardPre > 0 ? "btn-outline-warning" : "btn-light";
+                    var classOpd = Model.Opd > 0 ? "btn-outline-info" : "btn-light";
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.HN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.FirstName)
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            @Html.DisplayFor(modelItem => Model.LastName)
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            @Html.DisplayFor(modelItem => Model.Birthdate)
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            @Html.DisplayFor(modelItem => Model.Sex)
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            @Html.DisplayFor(modelItem => Model.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.AN)
+                        </td>
+
+                        <td class="text-center">
+                            @if (Model.WardPre == 0)
+                            {
+                                <a asp-controller="LogBook" asp-action="Create_WardPre" asp-route-an="@Model.AN" class="btn @classWardPre btn-sm btn-block">
+                                    "N/A"
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-controller="LogBook" asp-action="Details_WardPre" asp-route-an="@Model.AN" class="btn @classWardPre btn-sm btn-block">
+                                    @Model.WardPre
+                                </a>
+                            }
+                        </td>
+                        <td class="text-center">
+                            <a asp-controller="LogBook" asp-action="Create_Opd" asp-route-an="@Model.AN" class="btn @classOpd btn-sm btn-block">
+                                @(Model.Opd == 0 ? "N/A" : Model.Opd.ToString())
+                            </a>
+                        </td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

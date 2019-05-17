@@ -1,0 +1,82 @@
+﻿@model LogBook.Models.WardPreDivisionVisit
+
+@{
+    ViewData["Title"] = "Details_WardPre";
+}
+
+<h1>Details_WardPre</h1>
+<div id="header"></div>
+
+<div>
+    <h4>WardPreDivisionVisit</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WardName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WardName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WardTimeArrive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WardTimeArrive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Diagnosis)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Diagnosis)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DivisionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DivisionName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VisitAN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VisitAN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastModifiedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastModifiedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script>
+    let url = '/logbook/visitrecord/'
+      + @ViewBag.AN;
+
+    $("#header").load(url);
+    </script>
+}

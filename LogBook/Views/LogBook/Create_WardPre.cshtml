@@ -1,0 +1,59 @@
+﻿@model WardPreDivisionVisit
+
+
+@{
+    ViewData["Title"] = "Create_WardPre";
+}
+
+<h1>WardPre</h1>
+<div id="header"></div>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>DivisionName</label>
+        <input asp-for="DivisionName" class="form-control" />
+        <div class="text-danger">
+            <span asp-validation-for="DivisionName"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Ward Name</label>
+        <input asp-for="WardName" class="form-control" />
+        <div class="text-danger">
+            <span asp-validation-for="WardName"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Time Ward Arrive</label>
+        <input asp-for="WardTimeArrive" class="form-control" />
+        <div class="text-danger">
+            <span asp-validation-for="WardTimeArrive"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Diagnosis</label>
+        <textarea asp-for="Diagnosis" class="form-control">
+    </textarea>
+        <div class="text-danger">
+            <span asp-validation-for="Diagnosis"></span>
+        </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+    let url = '/logbook/visitrecord/'
+      + @ViewBag.AN;
+
+    $("#header").load(url);
+    </script>
+}
